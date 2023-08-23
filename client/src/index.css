@@ -19,3 +19,6 @@
     @apply  -rotate-45;
 }
 
+*{
+    @apply font-helvatica
+}

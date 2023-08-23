@@ -8,4 +8,5 @@ route.get("/", async (_req, res) => {
     res.send(result.rows)
 })
 
+
 export default route

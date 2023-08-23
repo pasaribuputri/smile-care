@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
+import cors from "cors"
 import routeDoctors from "./src/routes/doctors/index.js";
 import routeServices from "./src/routes/services/index.js";
 import routerLogin from "./src/routes/users/index.js";
@@ -8,6 +9,8 @@ dotenv.config();
 
 const app = express();
 app.use(express.json())
+app.use(cors({origin: "http://localhost:5173" }))
+
 app.use("/auth", routerAuth)
 app.use("/doctors", routeDoctors)
 app.use("/services", routeServices)
