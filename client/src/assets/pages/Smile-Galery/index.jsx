@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom'
 
 const SmileGalery = () => {
   const navigate = useNavigate()
+  
   return (
     <>
     <div className='py-7 px-7 pt-24'>
-      <h1 className='font-bold text-xl font-helvatica  flex justify-center p-2'>Smile Galery</h1>
+      <h1 className='font-bold text-xl flex justify-center p-2'>Smile Galery</h1>
       <hr className='p-2 h'/>
       <div className='justify-center flex-wrap flex flex-row gap-10'>
       {

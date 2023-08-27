@@ -25,7 +25,7 @@ router.post('/login', async(req,res)=>{
     }
 })
 
-router.get('/logout', (req,res)=>{
+router.get('/logout', (_req,res)=>{
     res.setHeader("Cache-Control", "no-store");
     res.clearCookie('token');
     res.status(200).json({ status: 'OK', message: 'Logout berhasil' })

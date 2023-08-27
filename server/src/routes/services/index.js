@@ -12,4 +12,13 @@ route.get("/", async(req,res)=>{
     }
 })
 
+route.get("/:id_service", async (req, res) => {
+    try {
+        const result = await client.query(`select * from services where id_service = ${req.params.id_service}`)
+        res.status(200).json({ status: "OK", message: "Data berhasil ditampilkan", data: result.rows })
+    } catch (err) {
+        res.send(err)
+    }
+})
+
 export default route

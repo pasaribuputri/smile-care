@@ -9,6 +9,10 @@ import Doctors from './assets/pages/Doctors/index.jsx'
 import SmileGalery from './assets/pages/Smile-Galery/index.jsx'
 import About from './assets/pages/About/index.jsx'
 import Detail from './assets/pages/Smile-Galery/Detail/index.jsx'
+import DetailDoctor from './assets/pages/Doctors/Detail/index.jsx'
+import DetailServices from './assets/pages/Services/Detail/index.jsx'
+import Login from './assets/pages/Login/index.jsx'
+import SignIn from './assets/pages/SignUp/index.jsx'
 
 
 const router = createBrowserRouter([
@@ -24,8 +28,16 @@ const router = createBrowserRouter([
         element: <Services/>
       },
       {
+        path: "/detail-services/:id_service",
+        element: <DetailServices/>
+      },
+      {
         path: "/doctors",
-        element: <Doctors/>
+        element: <Doctors/>,
+      },
+      {
+        path: "/doctors/detail-doctor/:id_dokter",
+        element: <DetailDoctor/>
       },
       {
         path: "/smile-galery",
@@ -38,8 +50,16 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About/>
-      }
+      },
     ]
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/sign-up",
+    element: <SignIn/>
   }
 ])
 

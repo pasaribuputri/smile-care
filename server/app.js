@@ -9,11 +9,14 @@ dotenv.config();
 
 const app = express();
 app.use(express.json())
-app.use(cors({origin: "http://localhost:5173" }))
+app.use(cors({ origin: "http://localhost:5173" }))
 
-app.use("/auth", routerAuth)
-app.use("/doctors", routeDoctors)
-app.use("/services", routeServices)
-app.use("/users", routerLogin)
+const router = express.Router()
+app.use("/api", router)
+
+router.use("/auth", routerAuth)
+router.use("/doctors", routeDoctors)
+router.use("/services", routeServices)
+router.use("/users", routerLogin)
 
 app.listen(process.env.PORT, () => console.log(`Berjalan pada port ${process.env.PORT}`))

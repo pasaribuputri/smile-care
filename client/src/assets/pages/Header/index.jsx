@@ -9,7 +9,7 @@ const Header = () => {
     const navClass = `absolute px-5 py-5 bg-slate-700 shadow-black rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:max-w-full lg:bg-transparent lg:shadow-none lg:rounded-none ${isMenuActive ? "hidden" : ""}`
 
   return (
-    <header className='top-0 bg-blue-950 font-helvatica bg-opacity-80 left-0 w-full z-10 shadow  text-white fixed'>
+    <header className='top-0 fixed bg-blue-950 font-helvatica bg-opacity-80 left-0 w-full z-10 shadow  text-white '>
         <div className='flex items-center'>
             <div className='container'>
                 <div className="flex items-center mr-6 justify-between relative">
