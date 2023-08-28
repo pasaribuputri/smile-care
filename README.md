@@ -14,4 +14,4 @@ Klinik Gigi anda untuk senyum yang lebih cerah
 - Frontend : React Js untuk antarmuka pengguna yang dinamis dan intreaktif
 
 ## Diagram ERD
-![ERD SmileCare](./Capture.jpg)
+![ERD SmileCare](Capture.JPG)
