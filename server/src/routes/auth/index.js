@@ -2,30 +2,39 @@ import express from "express";
 import { client } from "../../driver/db.js";
 import bycript from "bcryptjs";
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv"
+dotenv.config()
 
 const router = express.Router()
 
-router.post('/login', async(req,res)=>{
-    const result = await client.query(`select * from users where email = '${req.body.email}'`)
-    const promises = result.rows.map(async(user)=>{
-        if(await bycript.compare(req.body.password, user.password)){
-            return user;
+router.post('/login', async (req, res) => {
+    try{
+        const {email, password} = req.body;
+        const result = await client.query(`select * from users where email = $1`,[email])
+        if (result.rows.length > 0) {
+            const user = result.rows[0]
+            if (await bycript.compare(password, user.password)) {
+                const token = jwt.sign(user, process.env.SECRET_KEY);
+                res.cookie('token', token);
+                res.status(200).json({
+                    status: "OK", message: "Login Berhasil", data: {
+                        userLogin: user.nama,
+                        token: token
+                    }
+                })
+            } else {
+                res.status(401).json({ status: "Bad Request", message: "Kata sandi salah" })
+            }
+        } else {
+            res.status(401).json({ status: "Bad Request", message: "Pengguna tidak ditemukan" })
         }
-    })
-    const users = await Promise.all(promises);
-    const user = users.find((user)=> user!=undefined)
-    if(user){
-        const token = jwt.sign(user, process.env.SECRET_KEY);
-        res.cookie('token', token);
-        res.status(200).json({status: "OK", message: "Login Berhasil", data: {
-            userLogin: user.nama
-        }})
-    }else{
-        res.status(400).json({status: "Bad Request", message: "Password Salah"})
+    }catch (err){
+        console.error("Error during login:", err)
+        res.status(500).json({ status: "Internal Server Error", message: "Terjadi kesalahan dalam proses login" });
     }
 })
 
-router.get('/logout', (_req,res)=>{
+router.get('/logout', (_req, res) => {
     res.setHeader("Cache-Control", "no-store");
     res.clearCookie('token');
     res.status(200).json({ status: 'OK', message: 'Logout berhasil' })

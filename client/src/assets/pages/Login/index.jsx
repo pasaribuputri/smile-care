@@ -14,7 +14,7 @@ const Login = () => {
         <div className="w-[45%] h-full flex flex-col justify-center items-center bg-white">
               <form className='w-1/2 flex flex-col' onSubmit={async(e)=> {
                 e.preventDefault();
-                fetch("http://localhost:3000/api/auth",{
+                fetch("http://localhost:3000/api/auth/login",{
                   method: "POST"
                 })
 
