@@ -7,10 +7,10 @@ const SignIn = () => {
   const navigate = useNavigate()
 
 
-   const saveData = (e) => {
+   const saveData = (payload) => {
     fetch("http://localhost:3000/api/users/add",{
         method: "POST",
-        body: JSON.stringify(e),
+        body: JSON.stringify(payload),
         headers: {
             "Content-Type": "application/json"
         }
@@ -41,13 +41,13 @@ const SignIn = () => {
                   <p className='text-base text-center'>Please enter your details</p>
                 </div>
                 <label htmlFor="">Nama</label>
-                <input type="text" className='border-b border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, nama: e.target.value})}/>
+                <input type="text" required className='border-b border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, nama: e.target.value})}/>
                 <label htmlFor="">No HP</label>
-                <input type="text"  className='border-b  border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, no_hp: e.target.value})}/>
+                <input type="text" required className='border-b  border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, no_hp: e.target.value})}/>
                 <label htmlFor="">Email</label>
-                <input type="email" className='border-b border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, email: e.target.value})}/>
+                <input type="email" required className='border-b border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, email: e.target.value})}/>
                 <label htmlFor="">Password</label>
-                <input type="password"  className='border-b  border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, password: e.target.value})}/>
+                <input type="password" required  className='border-b  border-black outline-none mb-4' onChange={(e)=> setUserSignUp({...userSignUp, password: e.target.value})}/>
                 <button className='mt-8 text-white rounded-full bg-blue-950 opacity-80 py-2 hover:opacity-60'>Sign Up</button>
               </form>
                 <div className='flex justify-center mt-4'>

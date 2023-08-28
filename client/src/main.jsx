@@ -17,6 +17,14 @@ import SignIn from './assets/pages/SignUp/index.jsx'
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/sign-up",
+    element: <SignIn/>
+  },
+  {
     element: <App/>,
     children: [
       {
@@ -52,15 +60,8 @@ const router = createBrowserRouter([
         element: <About/>
       },
     ]
-  },
-  {
-    path: "/login",
-    element: <Login/>
-  },
-  {
-    path: "/sign-up",
-    element: <SignIn/>
   }
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

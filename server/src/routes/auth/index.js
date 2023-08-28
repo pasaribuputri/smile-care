@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 const router = express.Router()
 
 router.post('/login', async(req,res)=>{
-    const result = await client.query(`select * from users`)
+    const result = await client.query(`select * from users where email = '${req.body.email}'`)
     const promises = result.rows.map(async(user)=>{
         if(await bycript.compare(req.body.password, user.password)){
             return user;
