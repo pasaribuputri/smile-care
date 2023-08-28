@@ -8,10 +8,13 @@ const Services = () => {
 
   useEffect(()=>{
     fetch("http://localhost:3000/api/services",{
-      method: "GET"
+      method: "GET",
+      headers: {
+        ""
+      }
     })
     .then((response)=> response.json())
-    .then((data)=> {setService(data.data);})
+    .then((data)=> {setService(data.data)})
   },[])
 
   return (
