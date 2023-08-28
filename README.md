@@ -13,4 +13,4 @@ Klinik Gigi anda untuk senyum yang lebih cerah
 - Database : PostgreeSQL untuk penyimpanan data
 - Frontend : React Js untuk antarmuka pengguna yang dinamis dan intreaktif
 
-![Capture.jpg]
+![ERD SmileCare.id](Capture.jpg)
