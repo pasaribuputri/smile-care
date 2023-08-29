@@ -63,12 +63,15 @@ const Header = () => {
                             <nav className="">
                                 <div className="mb-3">{userLogin.nama}</div>
                                 <ul>
-                                    <li className="py-2">Lihat Profil</li>
+                                    <li className="py-2 cursor-pointer" onClick={()=> navigate("/detail-profil")}>Lihat Profil</li>
                                     <hr />
                                     <li  className="py-2 cursor-pointer" onClick={(e)=> {
                                         e.preventDefault()
                                         fetch("http://localhost:3000/api/auth/logout",{
                                             method: "GET",
+                                            headers: {
+                                                "Authorization": `Bearer ${localStorage.getItem("token")}`
+                                            }
                                         }).then((response)=> response.json())
                                         .then((res)=> {
                                             if(confirm("Yakin ingin keluar ?")){

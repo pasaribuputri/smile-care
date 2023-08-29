@@ -8,7 +8,13 @@ const DetailServices = () => {
     
 
     useEffect(()=>{
-        fetch(`http://localhost:3000/api/services/${id_service}`)
+        fetch(`http://localhost:3000/api/services/${id_service}`,{
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Authorization" : `Bearer ${localStorage.getItem("token")}`
+          }
+        })
         .then((response)=> response.json())
         .then((data)=> {setServices(data.data[0]);})
     }, [id_service])

@@ -27,6 +27,7 @@ const Login = () => {
                     setUserSignIn(data)
                     console.log(data);
                     localStorage.setItem("userLogin",JSON.stringify(data.data.userLogin))
+                    localStorage.setItem("token", data.data.token)
                     navigate("/")
                   }else{
                     const errorData = await response.json();

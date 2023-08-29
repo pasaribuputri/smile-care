@@ -30,4 +30,13 @@ router.delete("/delete/:id", async (req,res)=>{
     }
 })
 
+router.put("/update/:id", async(req,res)=>{
+    try{
+        await client.query(`update users set nama = '${req.body.nama}', no_hp = '${req.body.no_hp}', email= '${req.body.email}' where id = ${req.params.id}`)
+        res.status(200).json({status:"OK", message: "Data berhasil di ediit"})
+    } catch (err) {
+        res.status(400).json(err.message)
+    }
+})
+
 export default router

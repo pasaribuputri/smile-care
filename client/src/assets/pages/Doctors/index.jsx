@@ -9,6 +9,9 @@ const Doctors = () => {
   useEffect(() => {
     fetch("http://localhost:3000/api/doctors/", {
       method: "GET",
+      headers: {
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+      }
     })
       .then((response) => response.json()) 
       .then((data) => setDoctors(data)) 

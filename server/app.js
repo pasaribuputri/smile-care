@@ -1,20 +1,28 @@
 import express from "express"
-import dotenv from "dotenv"
+import "dotenv/config"
 import cors from "cors"
 import routeDoctors from "./src/routes/doctors/index.js";
 import routeServices from "./src/routes/services/index.js";
 import routerLogin from "./src/routes/users/index.js";
 import routerAuth from "./src/routes/auth/index.js";
-dotenv.config();
+import authMiddleware from "./src/routes/middleware/index.js";
+
 
 const app = express();
+
+app.use(cors({
+    origin: "http://localhost:5173", methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+}))
 app.use(express.json())
-app.use(cors({ origin: "http://localhost:5173" }))
 
 const router = express.Router()
 app.use("/api", router)
 
 router.use("/auth", routerAuth)
+
+router.use(authMiddleware)
+
 router.use("/doctors", routeDoctors)
 router.use("/services", routeServices)
 router.use("/users", routerLogin)

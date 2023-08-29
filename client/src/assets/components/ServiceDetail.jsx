@@ -16,6 +16,9 @@ const ServiceDetail = ({service}) => {
             console.log("service");
             fetch(`http://localhost:3000/api/doctors/${service.id_dokter}`, {
             method: "GET",
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                },
             })
             .then((response) => response.json()) 
             .then((data) => setDoctors(data[0])) 

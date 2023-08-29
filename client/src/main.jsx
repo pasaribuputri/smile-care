@@ -20,7 +20,7 @@ import ProfileDetail from './assets/pages/Profil/index.jsx'
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: localStorage.getItem("userLogin") ? <Navigate to="/"/> : <Login/> 
+    element:  <Login/> 
   },
   {
     path: "/sign-up",
@@ -31,35 +31,35 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: localStorage.getItem("userLogin") ? <Dashboard/> : <Navigate to="/login"/>
+        element: <Dashboard/>
       },
       {
         path: "/services",
-        element: <Services/>
+        element: <Services/> 
       },
       {
         path: "/detail-services/:id_service",
-        element: <DetailServices/>
+        element: <DetailServices/> 
       },
       {
         path: "/doctors",
-        element: <Doctors/>,
+        element: <Doctors/> 
       },
       {
         path: "/doctors/detail-doctor/:id_dokter",
-        element: <DetailDoctor/>
+        element: <DetailDoctor/> 
       },
       {
         path: "/smile-galery",
-        element: <SmileGalery/>,
+        element: <SmileGalery/> 
       }, 
       {
         path:"/smile-galery/detail/:id",
-        element: <Detail/>
+        element: <Detail/> 
       },
       {
         path: "/about",
-        element: <About/>
+        element: <About/> 
       },
       {
         path: "/detail-profil",

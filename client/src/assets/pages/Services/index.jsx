@@ -9,8 +9,9 @@ const Services = () => {
   useEffect(()=>{
     fetch("http://localhost:3000/api/services",{
       method: "GET",
+      credentials: "include",
       headers: {
-        ""
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
       }
     })
     .then((response)=> response.json())
