@@ -21,10 +21,10 @@ app.use("/api", router)
 
 router.use("/auth", routerAuth)
 
+router.use("/users", routerLogin)
 router.use(authMiddleware)
 
 router.use("/doctors", routeDoctors)
 router.use("/services", routeServices)
-router.use("/users", routerLogin)
 
 app.listen(process.env.PORT, () => console.log(`Berjalan pada port ${process.env.PORT}`))

@@ -15,18 +15,21 @@ const SignIn = () => {
             "Content-Type": "application/json"
         }
     }).then((response)=> response.json())
-    .then((res)=> alert(res.message))
+    .then((res)=> {
+      alert(res.message);
+      navigate("/login")
+    })
   }
 
   return (
       <div className="h-screen w-screen flex">
-        <div className="modal w-1/3 rounded-lg h-1/3 absolute m-auto left-0 right-0 top-0 bottom-0">
+        {/* <div className="modal w-1/3 rounded-lg h-1/3 absolute m-auto left-0 right-0 top-0 bottom-0">
             <div className="modal-header px-2 pt-2 h-1/3 z-10 bg-blue-950">
                 <LiaTimesCircle className='float-right' size={24}/>
             </div>
             <div className="modal-body"></div>
             <div className="modal-footer"></div>
-        </div>
+        </div> */}
         <div className="w-[55%] flex justify-center flex-col items-center text-white h-full bg-blue-950 opacity-80 ">
           <p className='text-4xl font-bold'>SmileCare.id</p>
           <p className='text-xl italic'>Klinik gigi anda untuk senyum yang lebih cerah</p>
